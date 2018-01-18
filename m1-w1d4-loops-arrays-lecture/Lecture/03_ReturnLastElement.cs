@@ -16,8 +16,11 @@ namespace Lecture
         public int ReturnLastElement()
         {
             int[] portNumbers = { 80, 8080, 443 };
-            
-            return 0;
+
+            int lastIndex = portNumbers.Length - 1;
+
+            //return portNumbers[lastIndex];
+            return portNumbers[portNumbers.Length - 1];
         }
     }
 }

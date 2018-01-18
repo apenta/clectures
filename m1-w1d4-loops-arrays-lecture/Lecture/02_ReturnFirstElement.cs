@@ -14,9 +14,9 @@ namespace Lecture
         */
         public int ReturnFirstElement()
         {
-            int[] portNumbers = { 80, 8080, 443 };
+            int[] portNumbers = { 80, 8080, 443 }; //<-- shorthand syntax to create and initialize array
 
-            return 0;
+            return portNumbers[0];
         }
 
         
