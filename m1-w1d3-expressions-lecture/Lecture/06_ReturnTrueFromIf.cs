@@ -15,9 +15,9 @@ namespace Lecture
         */
         public bool ReturnTrueFromIf()
         {
-            if (true)
+            if (true) //<-- this line is redundant, because TRUE is always TRUE
             {
-                return false;
+                return true; //<-- the method ends right here when the return statement hits
             }
 
             return false;

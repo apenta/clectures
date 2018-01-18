@@ -16,9 +16,12 @@ namespace Lecture
         */
         public bool ReturnTrueWhenOneEqualsOne()
         {
-            if (1 == 1)
+            int a = 1;
+            int b = 1;
+
+            if (a == b)
             {
-                return false;
+                return true;
             }
 
             return false;

@@ -18,7 +18,18 @@ namespace Lecture
          */
         public string ReturnFizzOrBuzzOrNothing(int number)
         {
-            return null;
+            string result = "";
+
+            if(number == 3)
+            {
+                result = "Fizz";
+            }
+            else if (number == 5)
+            {
+                result = "Buzz";
+            }
+
+            return result;
         }
     }
 }
