@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 // 1. Add a using statement
-
+using ShapeExercise.Shapes;
 
 namespace ShapeExercise
 {
@@ -12,6 +12,21 @@ namespace ShapeExercise
     {
         static void Main(string[] args)
         {
+            //Wall w1 = new Wall(10, 15);
+
+            ////w1.Height = 10;
+            ////w1.Width = 15;
+            //w1.Name = "Back wall";
+
+            //Console.WriteLine($"{w1.Name} area is {w1.GetArea()}");            
+            //Wall w2 = new Wall(100, 1);
+
+            //w2.Name = "Tower";
+
+            //Console.WriteLine($"{w2.Name} area is {w2.GetArea()}");
+
+
+            List<Wall> wallsToPaint = new List<Wall>();
 
             while (true)
             {
@@ -31,19 +46,29 @@ namespace ShapeExercise
                     Console.Write("Enter wall name >>> ");
                     string name = Console.ReadLine();
 
-                    int area = height * width;
+                    Wall wall = new Wall(height, width);
+                    wall.Name = name;
+
+                    wallsToPaint.Add(wall);
+
+                    double area = wall.GetArea();
 
                     Console.WriteLine($"Added {name} - {height}x{width} wall - {area} square feet");
                 }
                 else if (userChoice == "2")
                 {
                     // Here we need to sum up the areas of all walls that have been entered
-                    Console.WriteLine("Wall 1: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
-                    Console.WriteLine("Wall 2: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
-                    Console.WriteLine("Wall 3: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
-                    Console.WriteLine("Wall 4: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
-
-                    int totalArea = 600; // PROTOTYPE ONLY!!!
+                    //Console.WriteLine("Wall 1: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
+                    //Console.WriteLine("Wall 2: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
+                    //Console.WriteLine("Wall 3: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
+                    //Console.WriteLine("Wall 4: 10x15 - 150 square feet"); // PROTOTYPE ONLY!!!
+                    double totalArea = 0;
+                    foreach(Wall wall in wallsToPaint)
+                    {
+                        Console.WriteLine($"Wall {wall.Name}: {wall.Height}x{wall.Width} - {wall.GetArea()} square feet.");
+                        totalArea += wall.GetArea(); //add up each wall area to the total area
+                    }
+                    
                     Console.WriteLine("===============================");
                     Console.WriteLine($"Total Area: {totalArea} square feet");
 
