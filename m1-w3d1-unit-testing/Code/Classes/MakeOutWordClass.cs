@@ -19,6 +19,11 @@ namespace Code.Classes
         */
         public string MakeOutWord(string output, string word)
         {
+            if (output.Length == 0)
+            {
+                return word;
+            }
+
             return output.Substring(0, 2) + word + output.Substring(2);
         }
     }
