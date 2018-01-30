@@ -11,7 +11,12 @@ namespace Inheritance
     {
         static void Main(string[] args)
         {
-            Auction auction = new Auction();            
+            Console.Write("Type in the name of the product you are bidding on: ");
+            string itemName = Console.ReadLine();
+
+            BuyoutAuction auction = new BuyoutAuction(itemName, 100);       
+            
+            
 
             while (true)
             {                
@@ -21,7 +26,8 @@ namespace Inheritance
 
                 if (input.ToLower() == "q")
                 {
-                    // Console.WriteLine(auction);
+                    Console.WriteLine("Bid History");
+                    Console.WriteLine(auction);
                     break;
                 }
 

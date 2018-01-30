@@ -12,6 +12,20 @@ namespace Inheritance.Classes
     public class Auction
     {
         /// <summary>
+        /// Creates a new auction.
+        /// </summary>
+        /// <param name="itemName"></param>
+        public Auction(string itemName)
+        {
+            this.ItemName = itemName;
+        }
+
+        /// <summary>
+        /// The thing that we are bidding on.
+        /// </summary>
+        public string ItemName { get; private set; }
+
+        /// <summary>
         /// The current high bid.
         /// </summary>
         public Bid HighBidder { get; private set; }
@@ -24,7 +38,7 @@ namespace Inheritance.Classes
         /// <summary>
         /// Indicates if the auction has ended.
         /// </summary>
-        public bool HasEnded { get; private set; }
+        public bool HasEnded { get; protected set; }
 
 
         /// <summary>
@@ -32,7 +46,7 @@ namespace Inheritance.Classes
         /// </summary>
         /// <param name="offer">Details of the bid offer.</param>
         /// <returns>true if the bid is a high bid.</returns>
-        public bool PlaceBid(Bid offer)
+        public virtual bool PlaceBid(Bid offer)
         {
             bool winningBid = false;
 
@@ -63,6 +77,20 @@ namespace Inheritance.Classes
             Console.WriteLine();
 
             return winningBid;
+        }
+
+
+        public override string ToString()
+        {
+            string result = "";
+
+            foreach (Bid bid in Bids)
+            {
+                result += $"BID - {bid.Bidder} for {bid.BidAmount.ToString("C")}\n";
+            }
+
+
+            return result;
         }
     }
 }

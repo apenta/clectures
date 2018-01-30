@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Classes\Auction.cs" />
     <Compile Include="Classes\Bid.cs" />
+    <Compile Include="Classes\BuyoutAuction.cs" />
+    <Compile Include="Classes\ReserveAuction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stubs\BaseClass.cs" />
