@@ -7,22 +7,19 @@ using System.Threading.Tasks;
 
 namespace Lecture.Farming
 {
-    public class Chicken
+    public class Chicken : FarmAnimal
     {        
-        public string NameOfAnimal
+        public Chicken()
         {
-            get
-            {
-                return "Chicken";
-            }
-        }      
-
-        public string MakeSoundOnce()
+            Name = "Chicken";
+        }
+        
+        public override string MakeSoundOnce()
         {
             return "Cluck";
         }
 
-        public string MakeSoundTwice()
+        public override string MakeSoundTwice()
         {
             return "Cluck Cluck";
         }

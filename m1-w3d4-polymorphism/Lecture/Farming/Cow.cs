@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 
 namespace Lecture.Farming
 {
-    public class Cow 
+    public class Cow : FarmAnimal
     {
-        public string NameOfAnimal
+        public Cow()
         {
-            get
-            {
-                return "Cow";
-            }
+            Name = "Cow";
         }
 
-        public string MakeSoundOnce()
+        public override string MakeSoundOnce()
         {
             return "Moo";
         }
 
-        public string MakeSoundTwice()
+        public override string MakeSoundTwice()
         {
             return "Moo Moo";
         }
+
+
+        public void Graze()
+        {
+            /// The cow grazes
+        }
+
     }
 }

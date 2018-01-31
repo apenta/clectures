@@ -25,33 +25,44 @@ namespace Lecture
             Chicken chicken = new Chicken();
             Cow cow = new Cow();
             Duck duck = new Duck();
+            Pig wilbur = new Pig();
+
+            //List<FarmAnimal> army = new List<FarmAnimal>();
+            List<ISingableItem> army = new List<ISingableItem>();
+            Stack<ISingableItem> stack = new Stack<ISingableItem>();
+
+            //ISingableItem item = new ISingableItem(); //<-- not allowed here
+
+            army.Add(new Cow());
+            army.Add(new Duck());
+            army.Add(new Chicken());
+            army.Add(new Pig());
+            army.Add(new Chicken());
+            army.Add(new Tractor("Lil Toot Toot"));
+
+            // Get the first item back out
+            //FarmAnimal firstAnimal = army[0];
+            //Cow firstCow = (Cow)army[0]; // Retrieve first item and cast to cow
+            //Console.WriteLine(army[0]);  // Print out type of first animal
 
             Console.WriteLine("Old MacDonald had a farm ee ay ee ay oh");
+
+            foreach(ISingableItem animal in army)
+            {                
+                Console.WriteLine("And on his farm there was a " + animal.Name + " ee ay ee ay oh");
+                Console.WriteLine("With a " + animal.MakeSoundTwice() + " here and a " + animal.MakeSoundTwice() + " there");
+                Console.WriteLine("Here a " + animal.MakeSoundOnce() + ", there a " + animal.MakeSoundOnce() + " everywhere a " + animal.MakeSoundTwice());
+                Console.WriteLine("Old Macdonald had a farm, ee ay ee ay oh");
+                Console.WriteLine();
+            }
             
-            Console.WriteLine("And on his farm there was a " + chicken.NameOfAnimal + " ee ay ee ay oh");
-            Console.WriteLine("With a " + chicken.MakeSoundTwice() + " here and a " + chicken.MakeSoundTwice() + " there");
-            Console.WriteLine("Here a " + chicken.MakeSoundOnce() + ", there a " + chicken.MakeSoundOnce() + " everywhere a " + chicken.MakeSoundTwice());
-            Console.WriteLine("Old Macdonald had a farm, ee ay ee ay oh");
-            Console.WriteLine();
-
-            Console.WriteLine("And on his farm there was a " + cow.NameOfAnimal + " ee ay ee ay oh");
-            Console.WriteLine("With a " + cow.MakeSoundTwice() + " here and a " + cow.MakeSoundTwice() + " there");
-            Console.WriteLine("Here a " + cow.MakeSoundOnce() + ", there a " + cow.MakeSoundOnce() + " everywhere a " + cow.MakeSoundTwice());
-            Console.WriteLine("Old Macdonald had a farm, ee ay ee ay oh");
-            Console.WriteLine();
-
-            Console.WriteLine("And on his farm there was a " + duck.NameOfAnimal + " ee ay ee ay oh");
-            Console.WriteLine("With a " + duck.MakeSoundTwice() + " here and a " + duck.MakeSoundTwice() + " there");
-            Console.WriteLine("Here a " + duck.MakeSoundOnce() + ", there a " + duck.MakeSoundOnce() + " everywhere a " + duck.MakeSoundTwice());
-            Console.WriteLine("Old Macdonald had a farm, ee ay ee ay oh");
-            Console.WriteLine();
 
             // ----- THIS IS GETTING REPETITIVE! 
             // We can do better
             // How can we use what we've learned about inheritance
             // to help us remove code duplication
             // 
-            
+
 
         }
     }
