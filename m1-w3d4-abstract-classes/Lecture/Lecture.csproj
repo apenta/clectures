@@ -50,6 +50,7 @@
     <Compile Include="Farming\IRepairableItem.cs" />
     <Compile Include="Farming\ISingableItem.cs" />
     <Compile Include="Farming\Pig.cs" />
+    <Compile Include="Farming\Snake.cs" />
     <Compile Include="Farming\Tractor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +59,8 @@
     <Compile Include="Stubs\ISkeletonInterface.cs" />
     <Compile Include="Stubs\SkeletonClass.cs" />
     <Compile Include="Stubs\Subclass.cs" />
+    <Compile Include="TestClasses\AbstractDemoClass.cs" />
+    <Compile Include="TestClasses\SubDemoClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

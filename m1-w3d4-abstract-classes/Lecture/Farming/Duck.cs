@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Lecture.Farming
 {
-    public class Duck : FarmAnimal
-    {
-        public Duck()
-        {
-            Name = "Duck";
-        }
+    //public class Duck : FarmAnimal
+    //{
+    //    public Duck()
+    //    {
+    //        Name = "Duck";
+    //    }
 
-        public override string MakeSoundOnce()
-        {
-            return "Quack";
-        }
+    //    public override string MakeSoundOnce()
+    //    {
+    //        return "Quack";
+    //    }
 
-        public override string MakeSoundTwice()
-        {
-            return "Quack Quack";
-        }
-    }
+    //    public override string MakeSoundTwice()
+    //    {
+    //        return "Quack Quack";
+    //    }
+    //}
 }

@@ -8,20 +8,38 @@ namespace Lecture.Farming
 {
     public class Cow : FarmAnimal
     {
-        public Cow()
+
+        public Cow(bool isAwake) : base(isAwake)
         {
             Name = "Cow";
         }
 
-        public override string MakeSoundOnce()
-        {
-            return "Moo";
-        }
 
-        public override string MakeSoundTwice()
-        {
-            return "Moo Moo";
-        }
+        //public override string MakeSoundOnce()
+        //{
+        //    if (IsAwake)
+        //    {
+        //        return "Moo";
+        //    }
+        //    else
+        //    {
+        //        return "ZZZ";
+        //    }
+        //}
+
+        //public override string MakeSoundTwice()
+        //{
+        //    if (IsAwake)
+        //    {
+        //        return "Moo Moo";
+        //    }
+        //    else
+        //    {
+        //        return "ZZZ ZZZ";
+        //    }
+        //}
+
+        
 
 
         public void Graze()
@@ -29,5 +47,14 @@ namespace Lecture.Farming
             /// The cow grazes
         }
 
+        protected override string MakeAwakeSoundOnce()
+        {
+            return "MOO";
+        }
+
+        protected override string MakeAwakeSoundTwice()
+        {
+            return "MOO MOO";
+        }
     }
 }

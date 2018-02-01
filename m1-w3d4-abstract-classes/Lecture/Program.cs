@@ -19,12 +19,17 @@ namespace Lecture
 
             List<ISingableItem> army = new List<ISingableItem>();
 
-            army.Add(new Cow());
-            army.Add(new Duck());
-            army.Add(new Chicken());
-            army.Add(new Pig());
-            army.Add(new Chicken());
+            //army.Add(new FarmAnimal());
+            army.Add(new Cow(false));
+            army.Add(new Cow(true));
+            army.Add(new Snake(false));
+            army.Add(new Snake(true));
+            //army.Add(new Duck());
+            //army.Add(new Chicken());
+            //army.Add(new Pig());
+            //army.Add(new Chicken());
             army.Add(new Tractor("Lil Toot Toot"));
+            //army.Add(new FarmAnimal());
 
 
             Console.WriteLine("Old MacDonald had a farm ee ay ee ay oh");
