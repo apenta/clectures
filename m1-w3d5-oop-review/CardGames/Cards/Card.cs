@@ -9,7 +9,7 @@ namespace CardGames.Cards
     /// <summary>
     /// Represents a "card".
     /// </summary>
-    public abstract class Card
+    public abstract class Card : IComparable<Card>
     {
         /// <summary>
         /// If the card is facing up.
@@ -25,6 +25,8 @@ namespace CardGames.Cards
         /// Foreground color of our card.
         /// </summary>
         public virtual ConsoleColor ForegroundColor { get; protected set; } = ConsoleColor.Black;
+
+        public abstract int CompareTo(Card other);
 
 
         /// <summary>

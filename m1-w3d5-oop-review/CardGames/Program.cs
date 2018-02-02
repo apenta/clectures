@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CardGames.Cards;
+using CardGames.Games;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,8 @@ namespace CardGames
     {
         static void Main(string[] args)
         {
+            WarGame game = new WarGame("JOHN", "BILL");
+            game.PlayGame();
         }
     }
 }

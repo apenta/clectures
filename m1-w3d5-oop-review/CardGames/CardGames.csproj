@@ -43,15 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\StandardCard.cs" />
     <Compile Include="Decks\Deck.cs" />
+    <Compile Include="Decks\Pile.cs" />
+    <Compile Include="Decks\WarDeck.cs" />
+    <Compile Include="Games\WarGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Games\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
