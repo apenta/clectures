@@ -48,11 +48,15 @@
     <Compile Include="Aids\4 Reading CSVs.cs" />
     <Compile Include="Aids\3 Reading Files.cs" />
     <Compile Include="Aids\5 Summing Up Numbers.cs" />
+    <Compile Include="Dog.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="dogs.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="words.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

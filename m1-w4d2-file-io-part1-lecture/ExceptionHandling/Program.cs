@@ -11,14 +11,14 @@ namespace ExceptionHandling
     {
         static void Main(string[] args)
         {
-          /* 
-          * By default, when an Exception is thrown, it will "bubble up" through the call stack until
-          * it reaches the main method and then will cause the program to exit and print a stacktrace
-          * to the standard output 
-          * 
-          * By using try/catch blocks, you can stop the Exception from exiting the method and provide
-          * code to handle it. 
-          */
+            /* 
+            * By default, when an Exception is thrown, it will "bubble up" through the call stack until
+            * it reaches the main method and then will cause the program to exit and print a stacktrace
+            * to the standard output 
+            * 
+            * By using try/catch blocks, you can stop the Exception from exiting the method and provide
+            * code to handle it. 
+            */
             Console.WriteLine("The following cities: ");
             string[] cities = new string[] { "Cleveland", "Columbus", "Cincinatti" };
             try
@@ -66,9 +66,28 @@ namespace ExceptionHandling
             {
                 Console.WriteLine("The standard work week is 40 hours.");
                 Console.WriteLine("How many hours did you work this week? >>> ");
-                int hoursWorked = int.Parse(Console.ReadLine());
+
+                int hoursWorked = GetIntegerFromUser();
+
                 int overtimeHours = hoursWorked - 40;
                 Console.WriteLine("You worked " + overtimeHours + " hours of overtime.");
+
+
+
+                //int hoursWorked = int.Parse(Console.ReadLine());
+                //int hoursWorked;
+                //bool validInput = int.TryParse(Console.ReadLine(), out int hoursWorked);
+
+                //if (validInput)
+                //{
+                //    int overtimeHours = hoursWorked - 40;
+                //    Console.WriteLine("You worked " + overtimeHours + " hours of overtime.");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("I couldn't parse what you just said.");
+                //}
+
             }
             catch (Exception e)
             {   // If a FormatException is thrown by int.Parse(...) 
@@ -80,7 +99,7 @@ namespace ExceptionHandling
              * It's not a best practice to catch Exception though because that is a catch all.
              * Better practice is to prevent the root cause or handle the specific type of exception
              * that you know may occur (e.g. FileNotFound, Server Unavailable)
-             */ 
+             */
 
             Console.WriteLine();
 
@@ -104,31 +123,71 @@ namespace ExceptionHandling
             Console.WriteLine();
 
 
-
-
-            /*
-            * We can also create our own Exceptions to use if the System provided
-            * exceptions don't give us what we need.  
-            *
-            * The "finally" block means that if an exception is caught or not, the code 
-            * in the finally block should run last.          
-            */
             try
             {
-                double finalBalance = Withdraw(6000.00);
-                Console.WriteLine("The final balance is " + finalBalance);
+
+                /*
+                * We can also create our own Exceptions to use if the System provided
+                * exceptions don't give us what we need.  
+                *
+                * The "finally" block means that if an exception is caught or not, the code 
+                * in the finally block should run last.          
+                */
+                try
+                {
+                    double finalBalance = Withdraw(6000.00);
+                    Console.WriteLine("The final balance is " + finalBalance);
+                }
+                catch (OverdraftException ex)
+                {
+                    Console.WriteLine("An overdraft exception was caught");
+                    Console.WriteLine(ex.Message);
+                    throw ex;
+                }
+                finally
+                {
+                    Console.WriteLine("Thank you for banking with Fly By Night Banking");
+                }
             }
-            catch(OverdraftException ex)
+            catch(Exception ex)
             {
-                Console.WriteLine("An overdraft exception was caught");
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Console.WriteLine("Thank you for banking with Fly By Night Banking");
+                Console.WriteLine("SOMETHING REALLY WENT WRONG");
             }
 
+
+            Console.WriteLine("----- Thank you for banking with Fly By Night Banking");
+
+            //finally
+            //{
+            //    Console.WriteLine("Thank you for banking with Fly By Night Banking");
+            //}
+
         }
+
+        private static int GetIntegerFromUser()
+        {
+            bool validInput = false;
+            int hoursWorked;
+            int numberOfAttempts = 0;
+            do
+            {
+                if (numberOfAttempts > 0)
+                {
+                    Console.WriteLine("TRY AGAIN!");
+                }
+
+                validInput = int.TryParse(Console.ReadLine(), out hoursWorked);
+                numberOfAttempts++;
+            }
+            while (!validInput);
+            return hoursWorked;
+        }
+
+
+
+
+
+
 
 
         private static double Withdraw(double amount)
@@ -139,7 +198,7 @@ namespace ExceptionHandling
 
             if (finalBalance < 0)
             {
-                throw new OverdraftException("You cannot overdraft this account", finalBalance);
+                throw new OverdraftException("You cannot overdraft this account");
             }
 
             return finalBalance;
