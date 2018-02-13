@@ -107,7 +107,7 @@ namespace async
             sw.Start();
             int i = 0;
 
-            while (i < 1_000)
+            while (i < 100)
             {
                 Console.WriteLine($"Downloading image {i}");
                 tasks.Add(downloader.DownloadRandomPhotoAsync(i));
