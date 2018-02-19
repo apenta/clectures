@@ -73,8 +73,14 @@ namespace WorldGeography.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM country WHERE continent='North America'", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM country WHERE continent = @continent", conn);
+
+                    //SqlCommand cmd = new SqlCommand("SELECT * FROM country WHERE continent = " + continent); <-- don't make me cry
+
+                    cmd.Parameters.AddWithValue("@continent", "North America");
+
                     SqlDataReader reader = cmd.ExecuteReader();
+                    
                     while (reader.Read())
                     {
                         Country c = new Country();

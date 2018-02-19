@@ -17,7 +17,7 @@ namespace WorldGeography
         const string Command_AddNewLanguage = "5";
         const string Command_RemoveLanguage = "6";
         const string Command_Quit = "q";
-        const string DatabaseConnectionString = @"";
+        const string DatabaseConnectionString = @"Server=.\SQLEXPRESS;Database=World;Trusted_Connection=True;";
 
         public void RunCLI()
         {
