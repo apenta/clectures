@@ -23,6 +23,22 @@ namespace VM.Tests
             Assert.AreEqual(18.0M, vm.CurrentBalance);
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /// <summary>
         /// Validates an exception is thrown when an invalid amount is fed.
         /// </summary>
@@ -37,6 +53,12 @@ namespace VM.Tests
             vm.FeedMoney(15);
         }
 
+
+
+
+
+
+
         /// <summary>
         /// Validates an exception is thrown when a negative amount is fed.
         /// </summary>
@@ -50,6 +72,16 @@ namespace VM.Tests
             //Act
             vm.FeedMoney(-10);
         }
+
+
+
+
+
+
+
+
+
+
 
         /// <summary>
         /// Validates that Get Item At Slot returns the correct test product.
@@ -173,6 +205,14 @@ namespace VM.Tests
             Assert.AreEqual(4, returnedChange.Quarters);
         }
 
+
+
+
+
+
+
+
+
         /// <summary>
         /// Validates an attempt to purchase from an invalid slot throws an exception.
         /// </summary>
@@ -186,13 +226,24 @@ namespace VM.Tests
             {
                 {"A1", new List<VendingMachineItem>() {testItem} }
             };
-
-            //Act
             VendingMachine vm = new VendingMachine(inventory);
 
-            //Assert
+            //Act
             vm.Purchase("A2");
+
+
+            //Assert
         }
+
+
+
+
+
+
+
+
+
+
 
         /// <summary>
         /// Validates an attempt to purchase an out of stock item throws an out of stock exception.
@@ -211,6 +262,11 @@ namespace VM.Tests
             //Act
             vm.Purchase("A1");
         }
+
+
+
+
+
 
         /// <summary>
         /// Validates an attempt to purchase an in stock item with no balance throrws insufficient funds.

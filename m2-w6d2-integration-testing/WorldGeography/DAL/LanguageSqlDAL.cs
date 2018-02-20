@@ -97,7 +97,7 @@ namespace WorldGeography.DAL
             catch(SqlException ex)
             {
                 Console.WriteLine("An error occurred reading the database: " + ex.Message);
-                return false;
+                throw;
             }
         }
 

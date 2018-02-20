@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using WorldGeography.DAL;
+using WorldGeography.Models;
 
 namespace WorldGeography.Tests.DAL
 {
@@ -18,7 +20,21 @@ namespace WorldGeography.Tests.DAL
         [TestMethod]
         public void LanguagesByCountry_OfficialLanguages()
         {
+            using (TransactionScope transaction = new TransactionScope())
+            {
+                // Arrange
+                CountrySqlDALTests.InsertFakeCountry("JRT", "Joshtopia", "North America");
+                LanguageSqlDALTests.InsertFakeLanguage("JRT", "Official Language", true);
+                LanguageSqlDALTests.InsertFakeLanguage("JRT", "Unofficial Languauge", false);
+                LanguageSqlDAL testClass = new LanguageSqlDAL(connectionString);
 
+                // Act
+                List<Language> languages = testClass.GetLanguages("JRT", true);
+
+                // Assert
+                Assert.AreEqual(1, languages.Count);
+                Assert.AreEqual("Official Language", languages[0].Name);
+            }
         }
 
         [TestMethod]
@@ -30,13 +46,46 @@ namespace WorldGeography.Tests.DAL
         [TestMethod]
         public void AddLanguage_AddsLanguageIfRowDoesntExist()
         {
+            using (TransactionScope transaction = new TransactionScope())
+            {
+                //Arrange
+                CountrySqlDALTests.InsertFakeCountry("JRT", "Fake Country", "North America");
+                LanguageSqlDAL testClass = new LanguageSqlDAL(connectionString);
+                Language newLanguage = new Language();
+                newLanguage.CountryCode = "JRT";
+                newLanguage.Name = "TEST LANGUAGE";
+                newLanguage.IsOfficial = true;
+                newLanguage.Percentage = 100;
 
+                //Act
+                bool output = testClass.AddNewLanguage(newLanguage);
+
+                //Assert
+                Assert.IsTrue(output);
+            }
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException))]
         public void AddLanguage_ThrowsExceptionIfRowExists()
         {
+            using (TransactionScope transaction = new TransactionScope())
+            {
+                //Arrange
+                CountrySqlDALTests.InsertFakeCountry("JRT", "Fake Country", "North America");
+                LanguageSqlDALTests.InsertFakeLanguage("JRT", "TEST LANGUAGE", true);
+                LanguageSqlDAL testClass = new LanguageSqlDAL(connectionString);
+                Language newLanguage = new Language();
+                newLanguage.CountryCode = "JRT";
+                newLanguage.Name = "TEST LANGUAGE";
+                newLanguage.IsOfficial = true;
+                newLanguage.Percentage = 100;
 
+                //Act
+                bool output = testClass.AddNewLanguage(newLanguage);
+
+                
+            }
         }
 
 

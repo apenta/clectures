@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using WorldGeography.DAL;
+using WorldGeography.Models;
 
 namespace WorldGeography.Tests.DAL
 {
@@ -24,7 +26,22 @@ namespace WorldGeography.Tests.DAL
         [TestMethod]
         public void CitiesByCountryCode_Country_With_Cities()
         {
+            // Rolls back the data when done with the test.
+            using (TransactionScope transaction = new TransactionScope())
+            {
+                //Arrange
+                CountrySqlDALTests.InsertFakeCountry("JRT", "Joshtopia", "North America");
+                int cityId = CitySqlDALTests.InsertFakeCity("Joshville", "JRT");
+                CitySqlDAL testClass = new CitySqlDAL(connectionString);
 
+                //Act
+                List<City> cities = testClass.GetCitiesByCountryCode("JRT");
+
+                //Assert
+                Assert.AreEqual(1, cities.Count);
+                Assert.AreEqual("Joshville", cities[0].Name);
+                Assert.AreEqual(cityId, cities[0].CityId);
+            }            
         }
 
         /// <summary>
