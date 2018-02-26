@@ -1,0 +1,92 @@
+/* Apply this style to the HTML tag */
+html {
+    background: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2560x1638/99509a848376ccbf3d86e35c138cba3a/photo-1511861593747-f21108fc3427") bottom center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body {
+    /* Force Horizontal Scrollbar */
+    white-space: nowrap;
+
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    color: #FFF;
+}
+
+
+/* Style for each trello-list */
+/* All divs that have a class "trello-list" */
+div.trello-list {
+
+    /* Layout */
+    display: inline-block;
+    width: 300px;
+    margin-right: 10px;
+    vertical-align: top;
+
+    /* Look & Feel */
+    background-color: #DDD;
+    opacity: 0.8;
+    border-radius: 2px 3px;
+}
+
+/* Targets any H2 inside of <div class="trello-list"> tag */
+div.trello-list h2 {
+
+    /* Spacing */
+    margin: 8px 3px;
+}
+
+div.trello-list ol {
+    margin: 0;
+    padding: 0;
+}
+
+div.trello-list li {
+    /* Look & Feel */
+    list-style: none;
+    background-color: rgb(255, 255, 255);
+    
+    /* Spacing */
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+
+
+div.trello-list li:hover,
+div.trello-list a:hover {
+    background-color: #CCC;
+}
+
+div.trello-list a {
+    /* Layout */ 
+    display: block;
+
+    /* Look */
+    text-decoration: none;
+    color: #888;
+
+    /* Spacing */ 
+    padding: 5px 0px 5px 5px; /* top right bottom left */
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #4892BF;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #4870B0;
+}
+
+body::webkit-scrollbar-thumb:hover {
+    background: #481AC9;
+}
