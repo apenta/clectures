@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+
+    //2b. Collect the request string values into a variable
+    int maxValue = Convert.ToInt32(Request.QueryString["maxValue"]);
+    int incrementValue = Convert.ToInt32(Request.QueryString["incrementValue"]);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MetricToImperial</title>
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- 2a. Give the user a form to fill out.-->
+    <h1>Enter the max value and how much to increment by</h1>
+    <form>
+        <input type="text" name="maxValue" placeholder="What is the max value?" />
+        <input type="text" name="incrementValue" placeholder="How much do we increment by?" />
+        <button>GO!</button>
+    </form>
+
+    @if (maxValue > 0 && incrementValue > 0)
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric Unit</th>
+                    <th>Imperial Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i <= maxValue; i += incrementValue)
+                {
+                    <tr>
+                        <td>@i kilometers per hour</td>
+                        <td>@(i * 0.62) miles per hour</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</body>
+</html>

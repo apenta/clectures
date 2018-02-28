@@ -4,7 +4,7 @@
 
     // Comments inside of a Razor block work just like C# comments
 
-    var name = "Josh";
+    var name = "Steve";
 }
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
         @* Razor comments can also be in between these two characters.
             These comments are removed before getting returned to the client.
         *@
-        <p>Hello World! The current time is @DateTime.Now</p> @* <-- This is an inline Razor comment*@
+        <p>Hello World! The current time is @(DateTime.Now).</p> @* <-- This is an inline Razor comment*@
 
         @* We can write simple conditional code using if/else*@
         @if (name == "Josh")
