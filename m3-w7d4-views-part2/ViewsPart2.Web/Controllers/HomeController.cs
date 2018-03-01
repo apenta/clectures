@@ -18,11 +18,18 @@ namespace ViewsPart2.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var lists = GetLists(); //1. imagine we called a DAL for our data
+
+            return View(lists); //2. pass the model into our view
         }
 
 
+        public ActionResult Detail(int id)
+        {
+            var list = GetLists().First(l => l.Id == id);
 
+            return View(list);
+        }
 
 
 
@@ -41,6 +48,9 @@ namespace ViewsPart2.Web.Controllers
                         new TrelloCard() { Id = 4, Title = "SQL", CreateDate = DateTime.Now},
                         new TrelloCard() { Id = 5, Title = "OOP Review", CreateDate = DateTime.Now},
                         new TrelloCard() { Id = 6, Title = "Abandon Java", CreateDate = DateTime.Now},
+                        new TrelloCard() { Id = 7, Title = "Clean Garage", CreateDate = DateTime.Now},
+                        new TrelloCard() { Id = 8, Title = "Learn Angular", CreateDate = DateTime.Now},
+                        new TrelloCard() { Id = 9, Title = "Learn Vue", CreateDate = DateTime.Now},
                     }
                 },
                 new TrelloList() { Id = 2,  Name = "Completed", Cards = new List<TrelloCard>()
@@ -52,7 +62,22 @@ namespace ViewsPart2.Web.Controllers
                         new TrelloCard() { Id = 11, Title = "LINQ Talk", CreateDate = DateTime.Now},
                     }
                 },
-                new TrelloList() { Id = 1,  Name = "Pushed Off", Cards = new List<TrelloCard>()
+                new TrelloList() { Id = 3,  Name = "Pushed Off", Cards = new List<TrelloCard>()
+                    {
+                        new TrelloCard() { Id = 12, Title = "Eat Breakfast", CreateDate = DateTime.Now},
+                    }
+                },
+                 new TrelloList() { Id = 4,  Name = "Pushed Off", Cards = new List<TrelloCard>()
+                    {
+                        new TrelloCard() { Id = 12, Title = "Eat Breakfast", CreateDate = DateTime.Now},
+                    }
+                },
+                  new TrelloList() { Id = 5,  Name = "Pushed Off", Cards = new List<TrelloCard>()
+                    {
+                        new TrelloCard() { Id = 12, Title = "Eat Breakfast", CreateDate = DateTime.Now},
+                    }
+                },
+                   new TrelloList() { Id = 6,  Name = "Pushed Off", Cards = new List<TrelloCard>()
                     {
                         new TrelloCard() { Id = 12, Title = "Eat Breakfast", CreateDate = DateTime.Now},
                     }

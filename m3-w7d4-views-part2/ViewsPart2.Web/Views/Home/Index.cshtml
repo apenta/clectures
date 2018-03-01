@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@*3. Bind our view to a model *@
+@model IList<ViewsPart2.Web.Models.TrelloList>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,11 +20,26 @@
 
 <body>
 
+    
+
     <!-- Original HTML From HTML & CSS Day -->
     <h1>My Task List</h1>
     <main id="trello-board">
 
-        <div class="trello-list">
+        @foreach(var list in Model)
+        {
+            <div class="trello-list">
+                <h2>@list.Name</h2>
+                <ol class="cards">
+                    @foreach(var card in list.Cards)
+                    {
+                        <li class="card">@card.Title</li>
+                    }
+                </ol>
+            </div>
+        }
+
+        @*<div class="trello-list">
             <h2>To Do</h2>
             <ol class="cards">
                 <li class="card">Upload Assignment</li>
@@ -53,7 +71,7 @@
                 <li class="card">Eat Breakfast</li>
             </ol>
             <a href="#">Add a card...</a>
-        </div>
+        </div>*@
 
     </main>
 </body>
