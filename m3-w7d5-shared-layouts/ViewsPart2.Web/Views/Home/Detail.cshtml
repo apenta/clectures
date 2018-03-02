@@ -1,0 +1,33 @@
+﻿@* Bind our view to a model *@
+@model ViewsPart2.Web.Models.TrelloList
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+
+    <!-- Include Google Font - Raleway -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <!-- Include style.css -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+</head>
+<body>
+    <div class="trello-list">
+        <h2>@Model.Name</h2>
+        <ol class="cards">
+            @foreach (var card in Model.Cards)
+            {
+                <li class="card">@card.Title</li>
+            }
+        </ol>
+    </div>
+</body>
+</html>
