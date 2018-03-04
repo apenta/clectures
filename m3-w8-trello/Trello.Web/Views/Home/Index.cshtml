@@ -1,0 +1,30 @@
+﻿@model IList<Trello.Web.Models.TrelloList>
+
+@{
+    ViewBag.Title = "Trello";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Original HTML From HTML & CSS Day -->
+<h1>My Task List</h1>
+<div id="trello-board">
+
+    @* Model refers to the object that is passed in. *@
+    @foreach (var list in Model)
+    {
+
+        <div class="trello-list" data-list-id="@list.Id">
+            <h2>@list.Name</h2>
+            <ol class="cards">
+                @foreach (var card in list.Cards)
+                {
+                    <li class="card" data-card-id="@card.Id">@card.Title</li>
+                }
+            </ol>
+            <a href="#">Add a card...</a>
+        </div>
+
+    }
+
+</div>
+
