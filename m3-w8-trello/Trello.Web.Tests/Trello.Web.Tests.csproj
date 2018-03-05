@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestDoubles\TrelloListDoubleDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -90,9 +91,7 @@
       <Name>Trello.Web</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestDoubles\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

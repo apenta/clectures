@@ -1,4 +1,5 @@
 ﻿using Forms.Web.DAL;
+using Forms.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,27 @@ namespace Forms.Web.Controllers
         {            
             return View("Index");
         }
+
+        public ActionResult BlankForm()
+        {
+            return View("BlankForm");
+        }
+
+        // Create an action to receive the submitted form
+        // Each of the parameters corresponds with an input element from a form
+        //public ActionResult FormResult(string name, string password, string subscribe, string gender, string state, string favoriteColor)
+        //{
+        //    // call dal with the search parameters
+
+        //        return View("FormResult");
+        //}
+
+        public ActionResult FormResult(FormModel request)
+        {
+            return View("FormResult");
+        }
+
+
 
 
         /// <summary>

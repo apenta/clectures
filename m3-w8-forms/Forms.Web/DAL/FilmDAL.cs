@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -9,12 +10,8 @@ namespace Forms.Web.DAL
 {
     public class FilmDAL : IFilmDAL
     {
-        private string connectionString;
-        public FilmDAL(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
-
+        private string connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
+      
         public IList<Film> SearchFilms(string title, string description, int? releaseYear, int? minLength, int? maxLength, string rating)
         {
             IList<Film> films = new List<Film>();

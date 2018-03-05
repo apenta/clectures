@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "FormResult";
+}
+
+<h2>FormResult</h2>
+
+<table>
+    <tr>
+        <td>Param</td>
+        <td>Value</td>
+    </tr>
+    @* Loop through all of the querystring parameters*@
+    @foreach(var key in Request.QueryString.AllKeys)
+    {
+        <tr>
+            <td>@key</td>
+            <td>@Request.QueryString[key]</td>
+        </tr>
+    }
+</table>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ninject;
+using Ninject.Web.Common.WebHost;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -12,12 +14,31 @@ namespace Trello.Web
     // To configure Dependency Injection to work with this
     // Inherit from Abstract Class NinjectHttpApplication
     // Implement the abstract class CreateKernel method
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : NinjectHttpApplication
     {
-        protected void Application_Start()
+        //protected void Application_Start()
+        //{
+        //    AreaRegistration.RegisterAllAreas();
+        //    RouteConfig.RegisterRoutes(RouteTable.Routes);
+        //}
+
+        protected override void OnApplicationStarted()
         {
+            base.OnApplicationStarted();
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+
+        // Implement this abstract method defined by NinjectHttpApplication
+        protected override IKernel CreateKernel()
+        {
+            var kernel = new StandardKernel();
+
+            // Configure our Binding for DI
+            kernel.Bind<ITrelloListDAL>().To<TrelloListDAL>();
+
+            return kernel;
         }
     }
 }
