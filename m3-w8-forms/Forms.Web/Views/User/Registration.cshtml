@@ -1,0 +1,15 @@
+﻿@* 2. Bind Registration View to the UserRegistrationModel*@
+@model Forms.Web.Models.UserRegistrationModel
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+@* 3. Create form to send registration data *@
+<form method="post" action="@Url.Action("Registration", "User")">
+    @Html.TextBoxFor(m => m.Email, new { placeholder = "enter email" })
+    @Html.PasswordFor(m => m.Password, new { placeholder = "enter password" })
+    <button>Register</button>
+</form>

@@ -118,6 +118,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FilmController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\FilmDAL.cs" />
     <Compile Include="DAL\IFilmDAL.cs" />
     <Compile Include="Global.asax.cs">
@@ -126,6 +127,7 @@
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\FilmSearchModel.cs" />
     <Compile Include="Models\FormModel.cs" />
+    <Compile Include="Models\UserRegistrationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +144,8 @@
     <Content Include="Views\Home\FormResult.cshtml" />
     <Content Include="Views\Film\Index.cshtml" />
     <Content Include="Views\Film\SearchResult.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
+    <Content Include="Views\User\Success.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
