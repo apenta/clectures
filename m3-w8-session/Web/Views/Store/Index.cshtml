@@ -30,6 +30,8 @@
             <td>@product.Cost.ToString("C")</td>
             <td>
                 <form action="@Url.Action("AddToCart")" method="post">
+                    @* Create a hidden input field to store the product id *@
+                    <input type="hidden" value="@product.Id" name="id" />
                     <button>Add to Cart</button>
                 </form>
             </td>

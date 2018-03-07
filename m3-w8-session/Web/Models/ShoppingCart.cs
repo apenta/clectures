@@ -21,8 +21,46 @@ namespace Web.Models
                 Items.Add(shoppingCartItem);
             }
 
-            // Update the Quantity
+            // Update the Quantity            
             shoppingCartItem.Quantity += quantity;
+
+        }
+
+        public decimal GrandTotal
+        {
+            get
+            {
+                decimal total = 0.0M;
+
+                foreach (var item in Items)
+                {
+                    total += (item.Product.Cost) * item.Quantity;
+                }
+
+                return total;
+            }
+        }
+
+        public void RemoveOne(Product product)
+        {
+            // Find the cart item
+            var item = Items.FirstOrDefault(i => i.Product.Id == product.Id);
+
+            // If it doesnt exist, I don't care, return
+            if (item == null)
+            {
+                return;
+            }
+
+            // If it exists and qty is 1, remove from the list
+            if (item.Quantity == 1)
+            {
+                Items.Remove(item);
+                return;
+            }
+
+            // Otherwise, deduct 1 from quantity
+            item.Quantity -= 1;
         }
     }
 }

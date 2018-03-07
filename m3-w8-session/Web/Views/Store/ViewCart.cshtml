@@ -7,6 +7,7 @@
 
 <table>
     <tr>
+        <td></td>
         <td>Item</td>
         <td>Cost</td>
         <td>Qty.</td>        
@@ -14,4 +15,25 @@
     </tr>
     
     @* Loop Through the Items in the Cart and Display Them Here *@
+    @foreach(var item in Model.Items)
+    {
+        <tr>
+            <td>
+                <form method="post" action="@Url.Action("RemoveFromCart", "Store")">
+                    <input type="hidden" name="id" value="@item.Product.Id" />
+                    <button>Remove 1</button>
+                </form>
+            </td>
+            <td>@item.Product.Name</td>
+            <td>@item.Product.Cost</td>
+            <td>@item.Quantity</td>
+            <td>@((item.Product.Cost * item.Quantity).ToString("C"))</td>
+        </tr>
+    }
+
+
+    <tr>
+        <td>Grand Total</td>
+        <td>@Model.GrandTotal</td>
+    </tr>
 </table>
