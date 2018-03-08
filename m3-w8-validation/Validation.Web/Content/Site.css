@@ -18,3 +18,12 @@ textarea {
 
 
 
+/*12. Apply CSS for validation*/
+.input-validation-error {
+    border: 5px solid red;
+}
+
+.field-validation-error {
+    background-color: yellow;
+    color: red;
+}

@@ -1,0 +1,28 @@
+﻿@*8. Bind the LoginView to a Model*@
+@model ValidationSite.Web.Models.LoginViewModel
+
+
+@*2. Empty view to display the login page*@
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@* 3. POSTs the form data to the User/Login action*@
+<form method="post" action="@Url.Action("Login", "Users")">
+
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "enter email" })
+
+        @*11. Display the validation error messages*@
+        @Html.ValidationMessageFor(m => m.Username)
+    </div>
+    <div class="form-group">
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "enter password" })
+
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <button>Login</button>
+</form>
