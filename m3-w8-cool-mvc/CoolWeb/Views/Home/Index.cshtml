@@ -1,0 +1,20 @@
+﻿@model IList<CoolWeb.Models.HorseMask>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="horse-mask-list">
+    @foreach(var mask in Model)
+    {
+        <div class="horse-mask">
+            <h2>@mask.Name</h2>
+            <img src="@mask.Url" />
+        </div>
+    }
+</div>
+
+<div class="horse-mask-facts">
+    @Html.Action("Facts")
+</div>
