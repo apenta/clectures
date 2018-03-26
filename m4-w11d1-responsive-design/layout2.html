@@ -14,6 +14,68 @@
             font-size: 16px;
         }
         
+        /* Desktops and Larger */
+        /* Anything larger than 992px */
+        @media (min-width:992px) { 
+            .wrapper {
+                display: grid;
+                background-color: #FFF;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-areas: 
+                '. header .'
+                'nav content sidebar'
+            }
+        }
+
+        /* Small Tablets */
+        @media (min-width: 600px) and (max-width:991px) { 
+            .wrapper {
+                display: grid;
+                background-color: #FFF;
+                grid-template-columns: 1fr 3fr;
+                grid-template-areas: 
+                '.      header'
+                'nav    sidebar'
+                'nav    content'
+            }
+        }
+
+        /* Anything under 600px (phones) */
+        @media (max-width: 600px) {
+            .wrapper {
+                display: grid;
+                background-color: #FFF;
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                'nav'
+                'sidebar'
+                'content'
+            }
+
+            .subheading {
+                display: none;
+            }
+        }
+
+        img {            
+            max-width: 100%;
+        }
+
+        .subheading {
+            grid-area: header;
+        }
+
+        main {
+            grid-area: content;
+        }
+
+        aside {
+            grid-area: sidebar;            
+        }
+
+        nav {
+            grid-area: nav;
+        }
        
     </style>
 </head>

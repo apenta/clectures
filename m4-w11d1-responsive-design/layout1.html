@@ -18,7 +18,55 @@
             padding: 0 1em;
         }
 
-       
+        @media (min-width: 600px) { 
+            .wrapper {
+                display: grid; /* Makes it a CSS Grid */
+                grid-template-columns: 1fr 2fr;   /* Sets up a 1/3 and 2/3 2-column layout */
+                
+                grid-gap: 15px;
+                grid-template-areas: 
+                'header     header'
+                'sidebar    content'
+                'footer     footer'
+            }
+        }
+
+        @media (max-width: 599px) {
+            .wrapper {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 5px;
+                grid-template-areas: 
+                'header'
+                'content'
+                'sidebar'
+                'footer'
+            }
+        }
+
+        header {
+            grid-area: header;            
+        }
+
+        #content {
+            grid-area: content;
+        }
+
+        #toc {
+            grid-area: sidebar;            
+        }
+
+        #toc ul {
+            padding: 10px;
+        }
+
+        #toc ul li {
+            list-style: none;
+        }
+
+        footer {
+            grid-area: footer;
+        }
 
     </style>
 </head>
