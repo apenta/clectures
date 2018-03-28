@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/riot@3.7/riot+compiler.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <player pid="1"></player>
+    <player pid="2"></player>    
+    <game deck="AS,KS,QS,1D,2C,3H,4D"></game>
+    
+
+
+    <script src="game.tag" type="riot/tag"></script>
+    <script src="card.tag" type="riot/tag"></script>    
+    <script src="player.tag" type="riot/tag"></script>
+
+    <script>
+        var bus = {};        
+        
+        riot.observable(bus);
+        riot.mount('player', { bus: bus });
+        riot.mount('game', { bus: bus });
+        riot.mount('card');
+    </script>
+
+</body>
+
+</html>
