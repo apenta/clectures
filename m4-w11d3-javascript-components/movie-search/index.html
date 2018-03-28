@@ -14,16 +14,24 @@
 <body>
 
 
-    
-
+    <movie-search></movie-search>
+    <movie-list></movie-list>
 
 
 
     <!-- Reference the riot tags here -->
-    
+    <script src="movie-search.tag" type="riot/tag"></script>
+    <script src="movie-list.tag" type="riot/tag"></script>
 
     <script>
-        // Mount the riot tags to the page here        
+
+        let bus = {};
+
+        riot.observable(bus);   //makes it so our bus can send and receive messages
+
+        // Mount the riot tags to the page here  
+        riot.mount('movie-search', {bus: bus});      
+        riot.mount('movie-list', {bus: bus});      
     </script>
 
 </body>
